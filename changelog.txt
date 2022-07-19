@@ -3,3 +3,4 @@ Version: 999.999.999
 Date: 99.99.9999.
   Features:
     - Vertically swap all quickbars.
+    - Pick between different modes of operation (all or top one through four active quickbars).

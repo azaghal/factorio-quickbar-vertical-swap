@@ -17,6 +17,10 @@ Press `C` to vertically swap qucikbar slots.
 
 **NOTE:** Default control overlaps with built-in *Shoot selected* control. It is recommended to rebind the *Shoot selected* control to `Shift + Spacebar` to avoid accidents.
 
+### Configure swap mode of operation
+
+Choose between all quickbars (both visible and hidden), or one or more of the active (visible) quickbars.
+
 
 Known issues
 ------------
@@ -25,6 +29,7 @@ This is a list of known issues:
 
 -   Blueprints are not swapped. Unfortunately, the modding API does not provide means to successfully swap blueprints in quickbars.
 -   Empty slots are not swapped with non-empty slots. Unfortunately, when library blueprints are placed in the quickbar, it is not possible to distinguish them from empty slots. Therefore the mod refuses to swap a non-empty slot with an empty slot in order to preserve library blueprint slots.
+-   When enabling swapping for only active quickbars, player has to manually match the *Interface* / *Active quickbars* value since modding API does not provide the means to retrieve number of configured active quickbars.
 
 
 Contributions
