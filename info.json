@@ -1,0 +1,12 @@
+{
+    "name": "quickbar-vertical-swap",
+    "version": "999.999.999",
+    "title": "Quickbar Vertical Swap",
+    "author": "azaghal",
+    "homepage": "https://github.com/azaghal/factorio-quickbar-vertical-swap",
+    "description": "Vertically swap quickbar slots.",
+    "factorio_version": "1.1",
+    "dependencies": [
+        "? base >= 1.1.0"
+     ]
+}
