@@ -8,6 +8,25 @@ About
 *Quickbar Vertical Swap* is a simple quality-of-life mod that swaps first and last five slots in a quickbar slot using a custom control. This allows easy access to all quickbar slots using just the first five digits on the keyboard.
 
 
+Features
+--------
+
+### Vertically swap quickbar slots
+
+Press `C` to vertically swap qucikbar slots.
+
+**NOTE:** Default control overlaps with built-in *Shoot selected* control. It is recommended to rebind the *Shoot selected* control to `Shift + Spacebar` to avoid accidents.
+
+
+Known issues
+------------
+
+This is a list of known issues:
+
+-   Blueprints are not swapped. Unfortunately, the modding API does not provide means to successfully swap blueprints in quickbars.
+-   Empty slots are not swapped with non-empty slots. Unfortunately, when library blueprints are placed in the quickbar, it is not possible to distinguish them from empty slots. Therefore the mod refuses to swap a non-empty slot with an empty slot in order to preserve library blueprint slots.
+
+
 Contributions
 -------------
 
