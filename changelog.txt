@@ -5,3 +5,4 @@ Date: 99.99.9999.
     - Vertically swap all quickbars.
     - Pick between different modes of operation (all or top one through four active quickbars).
     - Blacklist quickbar rows to prevent them from being vertically swapped.
+    - Enable/disable library blueprint slot protection.

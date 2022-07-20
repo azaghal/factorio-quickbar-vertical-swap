@@ -2,6 +2,7 @@ data:extend({
         {
             type = "string-setting",
             name = "qvs-swap-mode",
+            order = "aa",
             setting_type = "runtime-per-user",
             default_value = "all",
             allowed_values = {
@@ -13,8 +14,16 @@ data:extend({
             },
         },
         {
+            type = "bool-setting",
+            name = "qvs-blueprint-protection",
+            order = "ab",
+            setting_type = "runtime-per-user",
+            default_value = true,
+        },
+        {
             type = "string-setting",
             name = "qvs-quickbar-blacklist",
+            order = "ac",
             setting_type = "runtime-per-user",
             default_value = "",
             allow_blank = true,

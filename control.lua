@@ -60,6 +60,17 @@ function qvs.get_quickbar_blacklist(player)
 end
 
 
+--- Checks if player has enabled blueprint protection (for game/player library).
+--
+-- Thin wrapper around the per-player setting.
+--
+-- @return bool true, if player has enabled blueprint protection, false otherwise.
+--
+function qvs.is_blueprint_protection_enabled(player)
+    return player.mod_settings["qvs-blueprint-protection"].value
+end
+
+
 --- Updates quickbar blacklist for a player.
 --
 -- Parses the player settings and updates the internal data structure.
@@ -170,6 +181,8 @@ function qvs.swap(player, mode)
     local slot_b_index
     local slot_a_filter
     local slot_b_filter
+    local slot_a_can_swap
+    local slot_b_can_swap
 
     for _, row_index in ipairs(rows) do
         for slot_index = 1, 5 do
@@ -179,8 +192,21 @@ function qvs.swap(player, mode)
             slot_a_filter = player.get_quick_bar_slot(slot_a_index)
             slot_b_filter = player.get_quick_bar_slot(slot_b_index)
 
-            -- Blueprints cannot be swapped, and nil values cannot be distinguished from library blueprints.
-            if slot_a_filter and slot_a_filter.name ~= "blueprint" and slot_b_filter and slot_b_filter.name ~= "blueprint" then
+            -- Figure out if we are allowed to swap the two slots. Inventory blueprints cannot be swapped. However,
+            -- game/player blueprints cannot be detected (they return as nil values), and we let the player decide how
+            -- to treat empty (from mod perspective) slots.
+            slot_a_can_swap =
+                (slot_a_filter ~= nil and slot_a_filter.name ~= "blueprint") and true or
+                (slot_a_filter == nil and not qvs.is_blueprint_protection_enabled(player)) and true or
+                false
+            slot_b_can_swap =
+                (slot_b_filter ~= nil and slot_b_filter.name ~= "blueprint") and true or
+                (slot_b_filter == nil and not qvs.is_blueprint_protection_enabled(player)) and true or
+                false
+
+            -- Checking if at least one of the slots is non-nil is means to avoid swapping game/player blueprints in two
+            -- slots (try as hard as possible to preserve them).
+            if (slot_a_filter or slot_b_filter) and slot_a_can_swap and slot_b_can_swap then
                 player.set_quick_bar_slot(slot_a_index, slot_b_filter)
                 player.set_quick_bar_slot(slot_b_index, slot_a_filter)
             end
@@ -246,6 +272,7 @@ end
 -- ==========================
 
 script.on_init(qvs.on_init)
+
 script.on_event(defines.events.on_player_created, qvs.on_player_created)
 script.on_event(defines.events.on_player_removed, qvs.on_player_removed)
 script.on_event(defines.events.on_runtime_mod_setting_changed, qvs.on_runtime_mod_setting_changed)
