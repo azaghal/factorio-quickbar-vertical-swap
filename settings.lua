@@ -12,4 +12,11 @@ data:extend({
                 "top-4",
             },
         },
+        {
+            type = "string-setting",
+            name = "qvs-quickbar-blacklist",
+            setting_type = "runtime-per-user",
+            default_value = "",
+            allow_blank = true,
+        },
 })

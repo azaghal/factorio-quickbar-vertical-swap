@@ -11,15 +11,10 @@ About
 Features
 --------
 
-### Vertically swap quickbar slots
 
-Press `C` to vertically swap qucikbar slots.
-
-**NOTE:** Default control overlaps with built-in *Shoot selected* control. It is recommended to rebind the *Shoot selected* control to `Shift + Spacebar` to avoid accidents.
-
-### Configure swap mode of operation
-
-Choose between all quickbars (both visible and hidden), or one or more of the active (visible) quickbars.
+-   Press `C` to vertically swap qucikbar slots. **NOTE:** Default control overlaps with built-in *Shoot selected* control. It is recommended to rebind the *Shoot selected* control to avoid accidents (for example to `Shift + Spacebar`), or to rebind the vertical swap control instead.
+-   Configurable mode of operation. Choose between all quickbars (both visible and hidden), or one or more of the active (visible) quickbars.
+-   Black-listing quickbar rows. Provide a comma-separated list of quickbars (numbers 1 through 10) that should be excluded from vertical swapping.
 
 
 Known issues
@@ -27,9 +22,9 @@ Known issues
 
 This is a list of known issues:
 
--   Blueprints are not swapped. Unfortunately, the modding API does not provide means to successfully swap blueprints in quickbars.
--   Empty slots are not swapped with non-empty slots. Unfortunately, when library blueprints are placed in the quickbar, it is not possible to distinguish them from empty slots. Therefore the mod refuses to swap a non-empty slot with an empty slot in order to preserve library blueprint slots.
--   When enabling swapping for only active quickbars, player has to manually match the *Interface* / *Active quickbars* value since modding API does not provide the means to retrieve number of configured active quickbars.
+-   [CANTFIX] Blueprints are not swapped. Modding API does not provide means to successfully swap blueprints in quickbars.
+-   [CANTFIX] When enabling swapping for only active quickbars, player has to manually match the *Interface* / *Active quickbars* value since modding API does not provide the means to retrieve number of configured active quickbars.
+-   [WONTFIX] Empty slots are not swapped with non-empty slots. When library blueprints are placed in the quickbar, it is not possible to distinguish them from empty slots. Instead of clearing such slot configurations by mistake, the mod insteads opts not to touch anything that looks like an empty slot.
 
 
 Contributions
