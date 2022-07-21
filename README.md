@@ -12,7 +12,7 @@ Features
 --------
 
 
--   Press `C` to vertically swap qucikbar slots. **NOTE:** Default control overlaps with built-in *Shoot selected* control. It is recommended to rebind the *Shoot selected* control to avoid accidents (for example to `Shift + Spacebar`), or to rebind the vertical swap control instead.
+-   Press `C` to vertically swap qucikbar slots. **NOTE:** Default control overlaps with built-in *Shoot selected* control. It is advisable to rebind the *Vertically swap quickbar slots* control or *Shoot selected* control to avoid accidents. Default control was picked due to its convenient placement on standard US keyboard layout, and its closeness to related default control binding for quickbar swapping.
 -   Configurable mode of operation. Choose between all quickbars (both visible and hidden), or one or more of the active (visible) quickbars.
 -   Black-listing quickbar rows. Provide a comma-separated list of quickbars (numbers 1 through 10) that should be excluded from vertical swapping.
 
